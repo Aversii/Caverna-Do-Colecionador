@@ -5,45 +5,50 @@ export const FooterContainer = styled.footer`
   background-color: ${({ theme }) => theme.colors.bgTerciary};
   position: relative;
   bottom: 0;
-  height: 80vh;
+  height: auto;
   display: grid;
   grid-template-rows: auto 1fr;
-  grid-template-columns: 33% 33% 33%;
+  grid-template-columns: repeat(4, 25%);
   grid-template-areas:
-    "header header header"
-    "left mid right";
+    "sponsor sponsor sponsor sponsor"
+    "links payment media client";
 
   & > :first-child {
     width: 100dvw;
   }
 
-  @media (max-width: 480px) {
+  @media (max-width: 479px) {
     grid-template-columns: 1fr;
     grid-template-areas:
-      "header"
-      "left"
-      "right"
-      "mid";
+      "sponsor"
+      "links"
+      "client"
+      "payment"
+      "media";
+    height: auto;
+  }
+  @media (min-width: 480px) and (max-width: 767px) {
+    grid-template-columns: 50%50%;
+    grid-template-areas:
+      "sponsor sponsor "
+      "links  payment "
+      "media  client ";
     height: auto;
   }
 
-  @media (max-width: 720) {
-    grid-template-columns: 1fr;
+  @media (min-width: 768px) and (max-width: 1280px) {
+    grid-template-rows: auto 1fr;
+    grid-template-columns: repeat(3, 33%);
     grid-template-areas:
-      "header" "left"
-      "right" "mid";
+      "sponsor sponsor sponsor "
+      "links client media"
+      "payment payment payment ";
     height: auto;
-
   }
-  @media (min-width: 416px) and (max-width: 767px) {
-      
-    }
 `;
 
-
-
 export const SponsorshipGrid = styled.div`
-  grid-area: header;
+  grid-area: sponsor;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   gap: 20px;
@@ -52,7 +57,6 @@ export const SponsorshipGrid = styled.div`
   text-align: center;
   height: 100%;
   place-items: center;
-
   & img {
     max-width: 100%;
     height: auto;
@@ -68,10 +72,11 @@ export const SponsorshipGrid = styled.div`
   }
 
   @media (min-width: 415px) and (max-width: 480px) {
-    width: 80%;
+    width: 60%;
   }
 
-  @media (min-width: 416px) and (max-width: 767px) {
+  @media (min-width: 481px) and (max-width: 720) {
+    width: 60%;
   }
 
   @media (min-width: 768px) {
@@ -91,16 +96,13 @@ export const SponsorshipGrid = styled.div`
 `;
 
 export const GridLink = styled.div`
-  display: grid;
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  grid-template-columns: 1fr;
-  grid-template-areas:
-    "firstlink"
-    "secondlink"
-    "thirdlink"
-    "fourthlink";
-  gap: 12px;
-  place-items: center;
+  height: 100%;
+  align-items: center;
+  justify-items: center;
+
   @media (max-width: 480px) {
     grid-template-columns: 1fr;
     grid-template-areas:
@@ -108,8 +110,15 @@ export const GridLink = styled.div`
       "secondlink"
       "thirdlink"
       "fourthlink";
-    height: auto;
+    height: 100%;
     place-items: center;
+  }
+
+  @media (min-width: 1280px) {
+    width: 60%;
+    align-items: start;
+    justify-content: start;
+    padding-top: 20px;
   }
 `;
 
@@ -119,13 +128,15 @@ export const Teste = styled.div`
 `;
 
 export const UsefulLinks = styled.div`
-  grid-area: right;
+  grid-area: links;
   display: flex;
+  align-items: center;
   width: 100%;
   height: 100%;
   font-size: 14px;
   color: ${({ theme }) => theme.colors.textSecondary};
   flex-direction: column;
+
   & a {
     text-decoration: none;
     color: ${({ theme }) => theme.colors.textSecondary};
@@ -136,43 +147,27 @@ export const UsefulLinks = styled.div`
     }
   }
 
-  & > :first-child {
-    display: flex;
+  @media (min-width: 1280px) {
     justify-content: center;
     align-items: center;
+    padding-top: 30px;
   }
-  & > :nth-child(2) {
-    align-items: center;
-    padding-top: 20px;
+  @media (min-width: 360px) and (max-width: 1280px) {
+    padding-top: 30px;
   }
 `;
 
 export const Title = styled.p`
   color: ${({ theme }) => theme.colors.textPrimary};
-  font-size: 1.55rem;
-  text-decoration: underline;
-`;
-
-export const ClientTitle = styled.p`
-  color: ${({ theme }) => theme.colors.textPrimary};
-  font-size: 1.55rem;
+  font-size: 1.45rem;
   padding-top: 25px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-`;
+  justify-content: center;
 
-export const LinkTitle = styled.p`
-  color: ${({ theme }) => theme.colors.textPrimary};
-  font-size: 1.55rem;
-  width: 50%;
-  margin-bottom: 15px;
-`;
-
-export const ClientSubTitle = styled.p`
-  color: ${({ theme }) => theme.colors.textPrimary};
-  font-size: 1.15rem;
-  margin-top: 12px;
-  font-family: Arial, Helvetica, sans-serif;
-  grid-area: firstlink;
+  &:hover {
+    text-decoration: underline;
+    color: ${({ theme }) => theme.colors.bgPrimary};
+  }
 `;
 
 export const SubTitle = styled.p`
@@ -181,40 +176,10 @@ export const SubTitle = styled.p`
   margin-top: 12px;
   font-family: Arial, Helvetica, sans-serif;
   grid-area: firstlink;
-
-  @media (max-width: 480px) {
-    font-size: 1.55rem;
+  &:hover {
+    color: ${({ theme }) => theme.colors.bgPrimary};
+    text-decoration: underline;
   }
-`;
-
-export const LeftSubTitle = styled.p`
-  color: ${({ theme }) => theme.colors.textPrimary};
-  font-size: 1.15rem;
-  margin-top: 12px;
-  font-family: Arial, Helvetica, sans-serif;
-  grid-area: secondlink;
-  @media (max-width: 480px) {
-    display: grid;
-    justify-self: center;
-  }
-`;
-
-export const ThirdSubTitle = styled.p`
-  color: ${({ theme }) => theme.colors.textPrimary};
-  font-size: 1.15rem;
-  margin-top: 12px;
-  font-style: italic;
-  font-family: Arial, Helvetica, sans-serif;
-  grid-area: thirdlink;
-`;
-
-export const FourthSubTitle = styled.p`
-  color: ${({ theme }) => theme.colors.textPrimary};
-  font-size: 1.15rem;
-  margin-top: 12px;
-  font-style: italic;
-  font-family: Arial, Helvetica, sans-serif;
-  grid-area: fourthlink;
 `;
 
 export const SponsorContainer = styled.div`
@@ -235,15 +200,26 @@ export const SponsorContainer = styled.div`
   }
 `;
 
-export const ClientSupportContainer = styled.div`
-  width: 100%;
-  grid-area: mid;
+export const PaymentContainer = styled.div`
+  width: 100%¨;
+  grid-area: payment;
   display: flex;
   flex-direction: column;
-  place-content: center;
-  justify-content: center;
+  align-items: center;
+  padding-top: 30px;
+`;
+
+export const ClientSupportContainer = styled.div`
+  width: 100%;
+  grid-area: client;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   height: 100%;
+
+  @media (max-width: 1440px) {
+    padding-top: 30px;
+  }
 `;
 
 export const PaymentCardGrid = styled.div`
@@ -256,106 +232,82 @@ export const PaymentCardGrid = styled.div`
     grid-template-columns: 33% 33% 33%;
     gap: 8px;
     place-items: center;
-    width: 90%;
+    width: 100%;
     margin-bottom: 20px;
   }
 
   @media (min-width: 360px) and (max-width: 414px) {
     grid-template-columns: 33% 33% 33%;
-    gap: 10px;
-    width: 60%;
+    width: 80%;
+    place-items: center;
+    justify-items: center;
+    padding-top: 10px;
   }
 
   @media (min-width: 415px) and (max-width: 480px) {
-    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-columns: 33% 33% 33%;
     gap: 10px;
-    width: 75%;
+    width: 100%;
   }
 
   @media (min-width: 416px) and (max-width: 767px) {
-    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-columns: 25% 25% 25%;
     gap: 10px;
     width: 75%;
   }
 
   @media (min-width: 768px) {
-    grid-template-columns: 33% 33% 33%;
+    grid-template-columns: 25% 25% 25% 25%;
     gap: 12px;
+    width: 55%;
   }
 
   @media (min-width: 1024px) {
-    grid-template-columns: 25% 25% 25% 25%;
-    gap: 15px;
+    grid-template-columns: repeat(auto-fill, minmax(10%, 1fr));
+    width: 60%;
   }
 
   @media (min-width: 1280px) {
-    grid-template-columns: 25% 25% 25% 25%;
-    width: 50%;
+    grid-template-columns: repeat(auto-fill, minmax(25%, 1fr));
+    width: 80%;
     column-gap: 10px;
-    justify-content: center;
+    place-items: center;
   }
 
   @media (min-width: 1440px) {
     grid-template-columns: repeat(4, 25%);
     gap: 18px;
   }
-
-  @media (min-width: 1920px) {
-    grid-template-columns: repeat(5, 20%);
-    gap: 20px;
-  }
 `;
 
 export const LinksContainer = styled.div`
-  display: grid;
+  display: flex;
+`;
+
+export const LinkBox = styled.div`
+  padding-top: 20px;
+
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
   width: 100%;
   height: 100%;
-  grid-template-columns: 50% 50%;
-  @media (max-width: 480px) {
-    grid-template-columns: 100%;
-
-    place-content: center;
-    align-items: center;
-  }
-`;
-
-export const LeftLinkBox = styled.div`
-  padding-top: 20px;
-
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: start;
 
   @media (max-width: 480px) {
     place-content: center;
     align-items: center;
-  }
-`;
-
-export const RightLinkBox = styled.div`
-  width: 150%;
-  padding-top: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  @media (max-width: 480px) {
-    place-content: center;
-    align-items: center;
-  }
-
-  @media (max-width: 380px) {
-    width: 100%;
   }
 `;
 
 export const SocialMediaContainer = styled.div`
-  grid-area: left;
+  grid-area: media;
   display: flex;
-  justify-content: center;
   flex-direction: column;
   align-items: center;
   width: 100%;
+  padding-top: 30px;
 
   & a {
     color: ${({ theme }) => theme.colors.textSecondary};
@@ -382,7 +334,7 @@ export const SocialBox = styled.div`
   display: grid;
   grid-template-columns: 50% 50%;
   width: 100%;
-  padding-bottom: 12px;
+  padding-bottom: 5px;
 
   & > :first-child {
     display: flex;
@@ -395,9 +347,6 @@ export const SocialBox = styled.div`
     display: flex;
     justify-content: start;
   }
-
-  @media (max-width: 380px) {
-  }
 `;
 
 export const MediaTitle = styled.p`
@@ -406,4 +355,8 @@ export const MediaTitle = styled.p`
   padding-top: 5px;
   padding-left: 30px;
   font-family: Arial, Helvetica, sans-serif;
+  &:hover {
+    color: ${({ theme }) => theme.colors.bgPrimary};
+    text-decoration: underline;
+  }
 `;

@@ -13,24 +13,16 @@ import {
   SocialMediaContainer,
   Title,
   SponsorContainer,
-  SubTitle,
   SocialBox,
   MediaTitle,
-  LeftSubTitle,
-  FourthSubTitle,
-  ThirdSubTitle,
   GridLink,
-  LinkTitle,
-  Teste,
   ClientSupportContainer,
   LinksContainer,
-  LeftLinkBox,
-  RightLinkBox,
-  ClientTitle,
-  ClientSubTitle,
+  SubTitle,
   PaymentCardGrid,
+  PaymentContainer,
+  LinkBox,
 } from "./styles";
-import { PaymentIcon } from "react-svg-credit-card-payment-icons";
 
 interface FooterProps {
   children: React.ReactNode;
@@ -82,43 +74,82 @@ export const Footer: React.FC<FooterProps> = ({ children }) => {
       </SponsorContainer>
 
       <UsefulLinks>
-        <ClientTitle>Nossa Loja</ClientTitle>
+        <Title>Nossa Loja</Title>
         <GridLink>
-          <ClientSubTitle>Sobre Nós</ClientSubTitle>
-
-          <LeftSubTitle>Contato</LeftSubTitle>
-          <ThirdSubTitle>Política de Privacidade</ThirdSubTitle>
-          <FourthSubTitle>Termos de Serviço</FourthSubTitle>
+          <SubTitle>Sobre Nós</SubTitle>
+          <SubTitle>Contato</SubTitle>
+          <SubTitle>Política de Privacidade</SubTitle>
+          <SubTitle>Termos de Serviço</SubTitle>
         </GridLink>
       </UsefulLinks>
 
       <ClientSupportContainer>
-        <ClientTitle>Suporte ao Cliente</ClientTitle>
+        <Title>Suporte ao Cliente</Title>
         <LinksContainer>
-          <LeftLinkBox>
-            <ClientSubTitle>Devoluções e Extornos</ClientSubTitle>
-            <ClientSubTitle>Rastreie seu Pedido</ClientSubTitle>
-            <ClientSubTitle>Fretes</ClientSubTitle>
-            <ClientSubTitle>Meio </ClientSubTitle>
-          </LeftLinkBox>
-          <RightLinkBox>
-            <SubTitle>Meio de Pagamento</SubTitle>
-            <PaymentCardGrid>
-              <PaymentIcon type="Visa" format="mono" width={55} />
-              <PaymentIcon type="Amex" format="mono" width={55} />
-              <PaymentIcon type="Diners" format="mono" width={55} />
-              <PaymentIcon type="Discover" format="mono" width={55} />
-              <PaymentIcon type="Unionpay" format="mono" width={55} />
-              <PaymentIcon type="Hipercard" format="mono" width={55} />
-              <PaymentIcon type="Mastercard" format="mono" width={55} />
-              <PaymentIcon type="Paypal" format="mono" width={55} />
-            </PaymentCardGrid>
-          </RightLinkBox>
+          <LinkBox>
+            <SubTitle>Devoluções e Extornos</SubTitle>
+            <SubTitle>Rastreie seu Pedido</SubTitle>
+            <SubTitle>Fretes</SubTitle>
+            <SubTitle>Meio </SubTitle>
+          </LinkBox>
         </LinksContainer>
       </ClientSupportContainer>
 
+      <PaymentContainer>
+        <Title>Meio de Pagamento</Title>
+        <PaymentCardGrid>
+          <Image
+            src="/amex-svgrepo-com.svg"
+            alt="Logo"
+            width={125}
+            height={52}
+          />
+
+          <Image
+            src="/diners-club-international-svgrepo-com.svg"
+            alt="Logo"
+            width={125}
+            height={52}
+          />
+
+          <Image
+            src="/elo-svgrepo-com.svg"
+            alt="Logo"
+            width={125}
+            height={52}
+          />
+
+          <Image
+            src="/bitpay-svgrepo-com.svg"
+            alt="Logo"
+            width={125}
+            height={52}
+          />
+
+          <Image
+            src="/maestro-svgrepo-com.svg"
+            alt="Logo"
+            width={125}
+            height={52}
+          />
+
+          <Image
+            src="/paymill-svgrepo-com.svg"
+            alt="Logo"
+            width={125}
+            height={52}
+          />
+          <Image
+            src="/western-union-svgrepo-com.svg"
+            alt="Logo"
+            width={125}
+            height={52}
+          />
+        </PaymentCardGrid>
+      </PaymentContainer>
+
       <SocialMediaContainer>
-        <ClientTitle>Nossas Redes Sociais</ClientTitle>
+        <Title>Nossas Redes Sociais</Title>
         <SocialBox>
           <FaFacebook size={33} color={"#1877F2"} />
           <MediaTitle>Facebook</MediaTitle>

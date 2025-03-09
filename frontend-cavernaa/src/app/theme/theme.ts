@@ -44,8 +44,8 @@ export const darkTheme: ITheme = {
   },
   typography: {
     h1: {
-      fontSize: "32px",
-      fontWeight: "bold",
+      fontSize: "50",
+      fontWeight: "regular",
     },
     h2: {
       fontSize: "24px",
@@ -61,8 +61,8 @@ export const darkTheme: ITheme = {
 export const lightTheme: ITheme = {
   colors: {
     bgPrimary: "#fff",
-    bgSecondary: "#FF8C00",
-    bgTerciary: "#FFD700",
+    bgSecondary: "#4287f5",
+    bgTerciary: "#4287f5",
     headPrimary: "#7DF9FF",
     headSecondary: "#FFA07A",
     headTerciary: "#FF6347",

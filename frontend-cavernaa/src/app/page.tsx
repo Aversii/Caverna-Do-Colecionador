@@ -5,6 +5,7 @@ import { lightTheme, darkTheme } from "./theme/theme";
 import { GlobalStyle } from "./global/globalStyles";
 import ToggleButton from "./components/toggleTheme/toggleTheme";
 import { Header } from "./components/header/header";
+import { Footer } from "./components/footer/footer";
 
 export default function Home() {
   const [theme, setTheme] = useState(lightTheme);
@@ -43,6 +44,13 @@ export default function Home() {
         <ToggleButton toggleTheme={toggleTheme} isdarkmode={isdarkmode} />
 
       </Header>
+
+      <Footer>  
+        <div>
+          oi jhon
+        </div>
+        
+      </Footer>
     </ThemeProvider>
   );
 }

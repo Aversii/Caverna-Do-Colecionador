@@ -6,6 +6,7 @@ import { GlobalStyle } from "./global/globalStyles";
 import ToggleButton from "./components/toggleTheme/toggleTheme";
 import { Header } from "./components/header/header";
 import { Footer } from "./components/footer/footer";
+import { Main } from "./main/main";
 
 export default function Home() {
   const [theme, setTheme] = useState(lightTheme);
@@ -45,12 +46,9 @@ export default function Home() {
 
       </Header>
 
-      <Footer>  
-        <div>
-          oi jhon
-        </div>
-        
-      </Footer>
+      <Main>  
+
+      </Main>
     </ThemeProvider>
   );
 }
